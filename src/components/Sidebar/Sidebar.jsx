@@ -4,7 +4,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { RenderNavigation } from './RenderNavigation'
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen, navigation, secondaryNavigation }) => {
+const Sidebar = ({ sidebarOpen=false, setSidebarOpen=()=>{}, navigation=[], secondaryNavigation=[] }) => {
 
     return (
         <div className="min-h-full">
@@ -29,7 +29,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, navigation, secondaryNavigation 
                         leaveFrom="translate-x-0"
                         leaveTo="-translate-x-full"
                     >
-                        <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-primary-700 transition data-[closed]:opacity-0">
+                        <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-primary-700 dark:bg-primary-950 transition data-[closed]:opacity-0">
                             <div className="flex-shrink-0 flex items-center px-4">
                                 <img
                                     className="h-8 w-auto"
@@ -70,7 +70,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, navigation, secondaryNavigation 
             {/* Static sidebar for desktop */}
             <div className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0">
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex flex-col flex-grow bg-primary-700 pt-5 pb-4 overflow-y-auto">
+                <div className="flex flex-col flex-grow bg-primary-700 dark:bg-primary-950 pt-5 pb-4 overflow-y-auto shadow-2xl">
                     <div className="flex items-center flex-shrink-0 px-4">
                         <img
                             className="h-8 w-auto"
