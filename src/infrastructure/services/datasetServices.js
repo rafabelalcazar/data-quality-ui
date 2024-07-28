@@ -1,5 +1,4 @@
 import ApiClient from "../../adapters/http/apiClient";
-import uploadDataset from "../../usecases/uploadDataset";
 
 export const datasetService = {
     loadDataset: async (dataset) => {

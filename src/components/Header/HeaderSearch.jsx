@@ -1,4 +1,4 @@
-import { Bars3CenterLeftIcon, MagnifyingGlassCircleIcon, MagnifyingGlassIcon, ServerStackIcon } from '@heroicons/react/16/solid'
+import { Bars3CenterLeftIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 import React from 'react'
 import HeaderActions from './HeaderActions'
 

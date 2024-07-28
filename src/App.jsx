@@ -9,18 +9,14 @@ import uploadDataset from './usecases/uploadDataset'
 import { datasetService } from './infrastructure/services/datasetServices'
 
 const dataTask = [
-  // { id: 0, name: 'None' },
   { id: 1, name: 'Classification' },
   { id: 2, name: 'Regression' },
-  // { id: 3, name: 'Multimodal' },
 ]
 
 const App = () => {
   
   const [selected, setSelected] = useState(dataTask[0])
   const [dataset, setDataset] = useState([])
-
-  console.log(dataset)
 
   const handleFile = (e) => {
     e.preventDefault()

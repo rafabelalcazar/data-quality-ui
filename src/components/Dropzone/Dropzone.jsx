@@ -1,6 +1,5 @@
 import { CloudArrowUpIcon } from '@heroicons/react/24/outline'
 import React from 'react'
-import { useRef } from 'react'
 
 const Dropzone = ({ onDrop, onChange, files = [], dataMessage }) => {
     return (
