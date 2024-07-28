@@ -5,6 +5,8 @@ import HeaderSearch from './components/Header/HeaderSearch'
 import SelectCustom from './components/Select/SelectCustom'
 import { useState } from 'react'
 import { Button } from '@headlessui/react'
+import uploadDataset from './usecases/uploadDataset'
+import { datasetService } from './infrastructure/services/datasetServices'
 
 const dataTask = [
   // { id: 0, name: 'None' },
@@ -33,6 +35,20 @@ const App = () => {
     setDataset([e.dataTransfer.files[0]])
   }
 
+  const handleUploadDataset = async () => {
+    console.log('Uploading dataset...')
+    if(dataset.length === 0){
+      console.log('No dataset selected')
+      return
+    }
+    try {
+      const result = await uploadDataset(datasetService, dataset[0])
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="min-h-full dark:bg-primary-950">
       <Sidebar />
@@ -50,7 +66,7 @@ const App = () => {
             <SelectCustom label='Knowledge Discovery Task' selected={selected} setSelected={setSelected} data={dataTask} />
           </div>
           <hr className='my-4'/>
-          <Button className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
+          <Button onClick={handleUploadDataset} className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
         </div>
       </div>
     </div>
