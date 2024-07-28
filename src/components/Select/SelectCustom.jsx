@@ -11,11 +11,11 @@ function classNames(...classes) {
 
 const SelectCustom = ({ selected, setSelected, data, label }) => {
     return (
-        <div className="mx-auto w-52 ">
+        <div className="mx-auto w-full ">
             <Listbox value={selected} onChange={setSelected}>
                 <Label className="block text-sm font-medium text-gray-700">{label}</Label>
                 <ListboxButton
-                    className='bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+                    className='bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm'
                 >
                     {selected.name}
                     <ChevronDownIcon
@@ -33,7 +33,7 @@ const SelectCustom = ({ selected, setSelected, data, label }) => {
                         <ListboxOption
                             key={item.name}
                             value={item}
-                            className={`cursor-default select-none relative flex py-2  ${selected.id === item.id && 'text-white bg-indigo-600 rounded-sm'} `}
+                            className={`cursor-default select-none relative flex py-2  ${selected.id === item.id && 'text-white bg-primary-600 rounded-sm'} `}
                         >
                             <CheckIcon className="invisible size-4 fill-white group-data-[selected]:visible" />
                             <div className="text-sm/6  dark:text-white">{item.name}</div>
