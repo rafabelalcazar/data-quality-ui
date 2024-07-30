@@ -13,10 +13,20 @@ const dataTask = [
   { id: 2, name: 'Regression' },
 ]
 
+const people = [
+  { id: 1, name: 'Durward Reynolds' },
+  { id: 2, name: 'Kenton Towne' },
+  { id: 3, name: 'Therese Wunsch' },
+  { id: 4, name: 'Benedict Kessler' },
+  { id: 5, name: 'Katelyn Rohan' },
+  { id: 6, name: 'Katelyn Rohan' },
+]
+
 const App = () => {
-  
+
   const [selected, setSelected] = useState(dataTask[0])
   const [dataset, setDataset] = useState([])
+  const [selectedPeople, setSelectedPeople] = useState([people[0], people[1]])
 
   const handleFile = (e) => {
     e.preventDefault()
@@ -25,7 +35,7 @@ const App = () => {
     }
     setDataset([e.target.files[0]])
   }
-  
+
   const handleFileDrop = (e) => {
     e.preventDefault()
     setDataset([e.dataTransfer.files[0]])
@@ -33,7 +43,7 @@ const App = () => {
 
   const handleUploadDataset = async () => {
     console.log('Uploading dataset...')
-    if(dataset.length === 0){
+    if (dataset.length === 0) {
       console.log('No dataset selected')
       return
     }
@@ -61,8 +71,11 @@ const App = () => {
           <div className='box-border p-1 w-full'>
             <SelectCustom label='Knowledge Discovery Task' selected={selected} setSelected={setSelected} data={dataTask} />
           </div>
-          <hr className='my-4'/>
+          <hr className='my-4' />
           <Button onClick={handleUploadDataset} className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
+          <div className='p-1 w-full box-border h-8'>
+            <SelectCustom label='Persons' selected={selectedPeople} setSelected={setSelectedPeople} data={people} multiple={true} />
+          </div>
         </div>
       </div>
     </div>
