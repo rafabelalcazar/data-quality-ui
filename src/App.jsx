@@ -8,6 +8,8 @@ import { Button } from '@headlessui/react'
 import uploadDataset from './usecases/uploadDataset'
 import { datasetService } from './infrastructure/services/datasetServices'
 import DatasetInfo from './pages/DatasetInfo'
+import { useContext } from 'react'
+import { DatasetContext } from './context/DatasetContext'
 
 const dataTask = [
   { id: 1, name: 'Classification' },
@@ -38,7 +40,8 @@ const App = () => {
   const [dataset, setDataset] = useState([])
   const [selectedPeople, setSelectedPeople] = useState([people[0], people[1]])
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [datasetResponse, setDatasetResponse] = useState({})
+  // const [datasetResponse, setDatasetResponse] = useState({})
+  const {datasetInfo, setDatasetInfo } = useContext(DatasetContext)
 
 
   const handleFile = (e) => {
@@ -63,7 +66,8 @@ const App = () => {
     try {
       const result = await uploadDataset(datasetService, dataset[0])
       console.log(result)
-      setDatasetResponse(result)
+      setDatasetInfo(result)
+      // setDatasetResponse(result)
     } catch (error) {
       console.log(error)
     }
@@ -90,7 +94,7 @@ const App = () => {
           <Button onClick={handleUploadDataset} className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
           <section className='py-8'>
             <h3 className='dark:text-white dark:p-4 dark:bg-gray-700 rounded-lg font-bold text-lg mb-4'>3. Resultado</h3>
-            <DatasetInfo datasetInfo={datasetResponse['dataset_info']} />
+            <DatasetInfo datasetInfo={datasetInfo['dataset_info']} />
           </section>
         </div>
       </div>
