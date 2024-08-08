@@ -10,6 +10,7 @@ import { datasetService } from './infrastructure/services/datasetServices'
 import DatasetInfo from './pages/DatasetInfo'
 import { useContext } from 'react'
 import { DatasetContext } from './context/DatasetContext'
+import DatasetAttributes from './pages/DatasetAttributes'
 
 const dataTask = [
   { id: 1, name: 'Classification' },
@@ -95,6 +96,7 @@ const App = () => {
           <section className='py-8'>
             <h3 className='dark:text-white dark:p-4 dark:bg-gray-700 rounded-lg font-bold text-lg mb-4'>3. Resultado</h3>
             <DatasetInfo datasetInfo={datasetInfo['dataset_info']} />
+            <DatasetAttributes />
           </section>
         </div>
       </div>

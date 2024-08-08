@@ -9,7 +9,7 @@ const DatasetInfo = ({ datasetInfo }) => {
     return (
 
 
-        <div className="md:w-max bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
+        <div className="w-max flex flex-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
             <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Análisis de dataset</h5>
@@ -17,9 +17,13 @@ const DatasetInfo = ({ datasetInfo }) => {
                 <div className="grid grid-cols-6 md:grid-cols-2 gap-2">
                     {
                         datasetInfo && Object.keys(datasetInfo)?.map((item, index) => {
-                            if (item==='missing_values') return
+                            if (item === 'missing_values') return
+
+                            // If is a float, round it to 2 decimals
+                            let item_value = Number.isInteger(datasetInfo[item]) ? datasetInfo[item] : parseFloat(datasetInfo[item]).toFixed(2)
+
                             return (
-                                <p className="text-slate-700 text-lg capitalize font-bold" key={index}>{item.replaceAll('_',' ')}: <span className="text-sm text-white bg-primary-600 px-4 p-1.5 rounded-full font-medium ">{ datasetInfo[item] && datasetInfo[item]}</span> </p>
+                                <p className="text-slate-700 text-lg capitalize font-bold" key={index}>{item.replaceAll('_', ' ')}: <span className="text-sm text-white bg-primary-600 px-4 p-1.5 rounded-full font-medium ">{datasetInfo[item] && item_value}</span> </p>
 
                             )
                         })
