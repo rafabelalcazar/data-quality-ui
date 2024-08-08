@@ -1,4 +1,4 @@
-import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions, ListboxSelectedOption, Transition } from '@headlessui/react'
+import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon, ChevronUpDownIcon } from '@heroicons/react/16/solid'
 import React from 'react'
 import './SelectCustom.css'
@@ -12,24 +12,24 @@ function classNames(...classes) {
 const SelectCustom = ({ selected, setSelected, data, label, multiple }) => {
 
     return (
-        <div className="mx-auto w-full ">
+        <div className="mx-auto w-full flex flex-col flex-1">
             <Listbox value={selected} onChange={setSelected} multiple={multiple} >
                 <Label className="block text-sm font-medium text-gray-700 ">{label}</Label>
                 <ListboxButton
-                    className='bg-white overflow-hidden h-12 flex justify-start items-center relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm'
+                    className='bg-white w-[var(--button-width)]  h-12 flex justify-start items-center relative border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm'
                 >
                     {
 
                         multiple &&
-                        <div className='flex  overflow-x-scroll overflow-y-hidden scrollbarThin ' >
+                        <div className='flex overflow-x-scroll scrollbarThin flex-1 w-1' >
                             {
-                                selected.map((item, index) => <p key={item.id} className='bg-primary-500 text-white rounded-full  px-4 py-1 mx-1 w-auto text-nowrap'>{item.name}</p>)
+                                selected.map((item, index) => <p key={item.id} className='bg-primary-500 text-white rounded-full  px-4 py-1 mx-1 w-auto text-nowrap block'>{item.name}</p>)
                             }
                         </div>
                     }
                         {selected.name}
                     <ChevronDownIcon
-                        className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-gray/60"
+                        className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-gray/60 "
                         aria-hidden="true"
                     />
 

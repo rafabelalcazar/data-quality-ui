@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { Button } from '@headlessui/react'
 import uploadDataset from './usecases/uploadDataset'
 import { datasetService } from './infrastructure/services/datasetServices'
+import DatasetInfo from './pages/DatasetInfo'
 
 const dataTask = [
   { id: 1, name: 'Classification' },
@@ -20,13 +21,25 @@ const people = [
   { id: 4, name: 'Benedict Kessler' },
   { id: 5, name: 'Katelyn Rohan' },
   { id: 6, name: 'Katelyn Rohan' },
+  { id: 7, name: 'Katelyn Rohan' },
+  { id: 8, name: 'Katelyn Rohan' },
 ]
 
+
+const navigation = [
+  { name: 'Home', href: '#', current: true },
+  { name: 'Analysis', href: '#', current: false },
+  { name: 'Plots', href: '#', current: false },
+  { name: 'CBR', href: '#', current: false },
+]
 const App = () => {
 
   const [selected, setSelected] = useState(dataTask[0])
   const [dataset, setDataset] = useState([])
   const [selectedPeople, setSelectedPeople] = useState([people[0], people[1]])
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [datasetResponse, setDatasetResponse] = useState({})
+
 
   const handleFile = (e) => {
     e.preventDefault()
@@ -50,16 +63,18 @@ const App = () => {
     try {
       const result = await uploadDataset(datasetService, dataset[0])
       console.log(result)
+      setDatasetResponse(result)
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-    <div className="min-h-full dark:bg-primary-950">
-      <Sidebar />
+    <div className="min-h-full dark:bg-gray-900">
+      <Sidebar navigation={navigation} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
       <div className="lg:pl-64 flex flex-col flex-1 h-full min-h-screen">
-        <HeaderSearch />
+        <HeaderSearch setSidebarOpen={setSidebarOpen} />
+        {/* <DatasetInfo /> */}
         <div className="p-4 sm:px-6 lg:lg:max-w-6xl lg:mx-auto lg:px-8 ">
           <h1 className="dark:text-white dark:p-4 dark:bg-gray-700 rounded-lg font-bold text-lg mb-4 ">FDQ-KD MultiModal</h1>
           <p className="p-4 my-4 bg-primary-700 text-white text-lg rounded-lg">Este servicio permite analizar la calidad de un dataset basado en el Framework FDQ-KDT.</p>
@@ -73,9 +88,9 @@ const App = () => {
           </div>
           <hr className='my-4' />
           <Button onClick={handleUploadDataset} className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
-          <div className='p-1 w-full box-border h-8'>
+          {/* <div className='w-full flex-1 box-border h-8 scroll-m-0'>
             <SelectCustom label='Persons' selected={selectedPeople} setSelected={setSelectedPeople} data={people} multiple={true} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

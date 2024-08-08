@@ -4,7 +4,7 @@ import HeaderActions from './HeaderActions'
 
 const HeaderSearch = ({ setSidebarOpen, onSearch, searchText }) => {
     return (
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white dark:bg-primary-950 border-b border-gray-200 lg:border-none">
+        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-900 border-b border-gray-200 lg:border-none">
             <button onClick={() => setSidebarOpen(true)} type="button" className="px-4 border-r border-gray-200 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden">
                 <span className="sr-only">Open sidebar</span>
                 {/* <!-- Heroicon name: outline/menu-alt-1 --> */}
@@ -23,7 +23,7 @@ const HeaderSearch = ({ setSidebarOpen, onSearch, searchText }) => {
                             <input id="search-field"
                                 onChange={onSearch}
                                 value={searchText}
-                                name="search-field" className="block w-full h-full pl-8 pr-3 py-2 bg-white dark:bg-primary-950 border-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search transactions" type="search" />
+                                name="search-field" className="block w-full h-full pl-8 pr-3 py-2 bg-white dark:bg-gray-900 border-transparent hover:bg-gray-500/10 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search transactions" type="search" />
                         </div>
                     </form>
                 </div>

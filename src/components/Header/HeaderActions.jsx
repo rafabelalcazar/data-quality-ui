@@ -7,7 +7,7 @@ import { Fragment } from 'react'
 const HeaderActions = () => {
     return (
         <div className="ml-4 flex items-center md:ml-6">
-            <button type="button" className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+            <button type="button" className="bg-white dark:bg-gray-800 p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                 <span className="sr-only">View notifications</span>
                 {/* <!-- Heroicon name: outline/bell --> */}
                 <BellIcon className="h-6 w-6" />
@@ -16,12 +16,12 @@ const HeaderActions = () => {
             {/* <!-- Profile dropdown --> */}
             <Menu as="div" className="ml-3 relative">
 
-                <MenuButton className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
+                {/* <MenuButton className="max-w-xs bg-white dark:bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
                     <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                     <span className="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span className="sr-only">Open user menu for </span>Emilia Birch</span>
                     <ChevronDownIcon className="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block" aria-hidden="true" />
 
-                </MenuButton>
+                </MenuButton> */}
                 <MenuItems
                     transition
                     anchor="bottom end"

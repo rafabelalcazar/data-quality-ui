@@ -16,7 +16,7 @@ export const RenderNavigation = ({ navigation }) => {
                         )}
                         aria-current={item.current ? 'page' : undefined}
                     >
-                        <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-primary-200" aria-hidden="true" />
+                        {item.icon && <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-primary-200" aria-hidden="true" />}
                         {item.name}
                     </a>
                 ))
