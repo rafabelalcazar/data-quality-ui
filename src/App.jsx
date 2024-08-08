@@ -71,7 +71,7 @@ const App = () => {
 
   return (
     <div className="min-h-full dark:bg-gray-900">
-      <Sidebar navigation={navigation} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
+      <Sidebar navigation={navigation} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className="lg:pl-64 flex flex-col flex-1 h-full min-h-screen">
         <HeaderSearch setSidebarOpen={setSidebarOpen} />
         {/* <DatasetInfo /> */}
@@ -88,9 +88,10 @@ const App = () => {
           </div>
           <hr className='my-4' />
           <Button onClick={handleUploadDataset} className="inline-flex animate-bounce shadow-lg w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">Iniciar</Button>
-          {/* <div className='w-full flex-1 box-border h-8 scroll-m-0'>
-            <SelectCustom label='Persons' selected={selectedPeople} setSelected={setSelectedPeople} data={people} multiple={true} />
-          </div> */}
+          <section className='py-8'>
+            <h3 className='dark:text-white dark:p-4 dark:bg-gray-700 rounded-lg font-bold text-lg mb-4'>3. Resultado</h3>
+            <DatasetInfo datasetInfo={datasetResponse['dataset_info']} />
+          </section>
         </div>
       </div>
     </div>

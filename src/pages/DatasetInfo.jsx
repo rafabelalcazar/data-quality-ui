@@ -1,46 +1,42 @@
 import React from 'react'
 
-const DatasetInfo = () => {
-  return (
-    <div className="p-4 sm:px-6 lg:lg:max-w-6xl lg:mx-auto lg:px-8 ">
-        <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-semibold text-gray-900">Dataset Information</h1>
-            <button className="flex items-center bg-primary-500 text-white px-4 py-2 rounded-md">Edit</button>
+const DatasetInfo = ({ datasetInfo }) => {
+
+    // Object.keys(datasetInfo).map((key) => (
+    //     <p key={key}>{key}</p>
+    // ))
+    console.log(datasetInfo)
+    return (
+
+
+        <div className="md:w-max bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
+            <div className="p-5">
+                <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Análisis de dataset</h5>
+                </a>
+                <div className="grid grid-cols-6 md:grid-cols-2 gap-2">
+                    {
+                        datasetInfo && Object.keys(datasetInfo)?.map((item, index) => {
+                            if (item==='missing_values') return
+                            return (
+                                <p className="text-slate-700 text-lg capitalize font-bold" key={index}>{item.replaceAll('_',' ')}: <span className="text-sm text-white bg-primary-600 px-4 p-1.5 rounded-full font-medium ">{ datasetInfo[item] && datasetInfo[item]}</span> </p>
+
+                            )
+                        })
+                    }
+                </div>
+
+                {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p> */}
+                {/* <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Read more
+                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a> */}
+            </div>
         </div>
-        <div className="mt-4">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
-                <p className="mt-1 text-sm text-gray-900">Iris Dataset</p>
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Description</label>
-                <p className="mt-1 text-sm text-gray-900">This is a dataset of flowers</p>
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Columns</label>
-                <p className="mt-1 text-sm text-gray-900">150</p>
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Rows</label>
-                <p className="mt-1 text-sm text-gray-900">5</p>
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Created At</label>
-                <p className="mt-1 text-sm text-gray-900">2021-09-01</p>
-            </div>
-            <div>
-                <label className="block text-sm font-medium text-gray-700">Updated At</label>
-                <p className="mt-1 text-sm text-gray-900">2021-09-01</p>
-            </div>
-            </div>
-        </div>
-        <div>
-            {/* Show data by feature */}
-            
-        </div>
-    </div>
-  )
+
+    )
 }
 
 export default DatasetInfo

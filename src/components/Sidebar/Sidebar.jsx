@@ -4,7 +4,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { RenderNavigation } from './RenderNavigation'
 
-const Sidebar = ({ sidebarOpen=false, setSidebarOpen=()=>{}, navigation=[], secondaryNavigation=[] }) => {
+const Sidebar = ({ sidebarOpen = false, setSidebarOpen = () => { }, navigation = [], secondaryNavigation = [] }) => {
 
     return (
         <div className="min-h-full">
@@ -31,11 +31,12 @@ const Sidebar = ({ sidebarOpen=false, setSidebarOpen=()=>{}, navigation=[], seco
                     >
                         <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-primary-700 dark:bg-gray-950 transition data-[closed]:opacity-0">
                             <div className="flex-shrink-0 flex items-center px-4">
-                                <img
+                                {/* <img
                                     className="h-8 w-auto"
                                     src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
                                     alt="Easywire logo"
-                                />
+                                /> */}
+                                <span className="text-white font-bold text-2xl">FDQ-KD Task</span>
                                 <div className="absolute top-0 right-0 -mr-12 pt-2">
                                     <button
                                         type="button"
@@ -72,11 +73,7 @@ const Sidebar = ({ sidebarOpen=false, setSidebarOpen=()=>{}, navigation=[], seco
                 {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex flex-col flex-grow bg-primary-700 dark:bg-gray-900 pt-5 pb-4 overflow-y-auto shadow-2xl">
                     <div className="flex items-center flex-shrink-0 px-4">
-                        <img
-                            className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
-                            alt="Easywire logo"
-                        />
+                        <span className="text-white font-bold text-3xl ">FDQ-KD Task</span>
                     </div>
                     <nav className="mt-5 flex-1 flex flex-col divide-y divide-primary-800 overflow-y-auto" aria-label="Sidebar">
                         <div className="px-2 space-y-1">
